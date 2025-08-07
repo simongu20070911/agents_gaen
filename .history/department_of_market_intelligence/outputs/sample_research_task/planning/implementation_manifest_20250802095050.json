@@ -1,0 +1,54 @@
+
+[
+  ... 1000 experiment tasks will be generated here ...
+  {
+    "task_id": "aggregate_results",
+    "description": "Collect results from all 1000 experiment runs into a single aggregated CSV file. This task will proceed if at least 950 results (95%) are present, but will log all missing files. If fewer than 950 results are available, the task will fail.",
+    "dependencies": [
+      "run_experiment_1", "run_experiment_2", ..., "run_experiment_1000"
+    ],
+    "parallel_group": 2,
+    "estimated_runtime": "2m",
+    "stitching_point": "This task converges the 1000 parallel experiment streams.",
+    "input_artifacts": [
+      "/home/gaen/agents_gaen/department_of_market_intelligence/outputs/sample_research_task/data/raw/experiment_result_1.json",
+      ...,
+      "/home/gaen/agents_gaen/department_of_market_intelligence/outputs/sample_research_task/data/raw/experiment_result_1000.json"
+    ],
+    "output_artifacts": ["/home/gaen/agents_gaen/department_of_market_intelligence/outputs/sample_research_task/data/processed/aggregated_results.csv"],
+    "interface_contract": {
+      "output": {
+        "description": "A CSV file with a single column containing the numerical results from all successful experiments.",
+        "schema": {"column": "result", "dtype": "float"}
+      }
+    },
+    "resource_requirements": {"cpu_cores": 2, "memory_gb": 1.0},
+    "success_criteria": "Output CSV file is created and contains at least 950 rows of data.",
+    "can_fail_independently": false
+  },
+  {
+    "task_id": "analyze_statistics",
+    "description": "Calculate the mean, variance, and 95% confidence interval of the aggregated experiment results.",
+    "dependencies": ["aggregate_results"],
+    "parallel_group": 3,
+    "estimated_runtime": "30s",
+    "input_artifacts": ["/home/gaen/agents_gaen/department_of_market_intelligence/outputs/sample_research_task/data/processed/aggregated_results.csv"],
+    "output_artifacts": ["/home/gaen/agents_gaen/department_of_market_intelligence/outputs/sample_research_task/results/statistical_results.json"],
+    "interface_contract": {
+      "output": {
+        "description": "A JSON file containing the final statistical analysis.",
+        "schema": {
+          "mean": "number",
+          "variance": "number",
+          "confidence_interval_95": {
+            "lower_bound": "number",
+            "upper_bound": "number"
+          }
+        }
+      }
+    },
+    "resource_requirements": {"cpu_cores": 1, "memory_gb": 0.5},
+    "success_criteria": "Output file contains valid JSON with 'mean', 'variance', and 'confidence_interval_95' keys.",
+    "can_fail_independently": false
+  }
+]

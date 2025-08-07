@@ -1,0 +1,62 @@
+version: '3.8'
+
+services:
+  nate-container:
+    build: .
+    container_name: nate-dev-container
+    hostname: nate-dev
+    
+    # Resource limits as requested
+    deploy:
+      resources:
+        limits:
+          cpus: '4.0'
+          memory: 8G
+        reservations:
+          cpus: '2.0'
+          memory: 4G
+    
+    # GPU support
+    runtime: nvidia
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=compute,utility
+    
+    # Port mapping for SSH
+    ports:
+      - "2244:22"
+    
+    # Volumes for persistent storage
+    volumes:
+      - nate-data:/home/nate/data
+      - nate-projects:/home/nate/projects
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw  # For GUI applications if needed
+    
+    # Additional capabilities
+    cap_add:
+      - SYS_PTRACE  # For debugging
+    
+    # Security options
+    security_opt:
+      - seccomp:unconfined  # For development tools
+    
+    # Keep container running
+    tty: true
+    stdin_open: true
+    
+    # Restart policy
+    restart: unless-stopped
+
+volumes:
+  nate-data:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/gaen/nate-container-data
+  nate-projects:
+    driver: local
+    driver_opts:
+      type: none  
+      o: bind
+      device: /home/gaen/nate-container-projects

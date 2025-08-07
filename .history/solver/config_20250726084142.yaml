@@ -1,0 +1,85 @@
+# Configuration for the IMO Solver Agent
+
+# --- Endpoint Configuration ---
+# Choose which endpoint to use: 'gemini' or 'openai'
+# - 'gemini': Uses /v1beta endpoint (thinking mixed in response)
+# - 'openai': Uses /v1/chat/completions (clean separation of thinking)
+endpoint_type: 'openai'
+
+# Enable streaming for OpenAI endpoint (helps prevent timeouts on long responses)
+# Only applies when endpoint_type is 'openai'
+oai_streaming: true
+
+# Show live streaming output in a rolling window (only when oai_streaming is true)
+# This displays what the model is currently generating, including reasoning
+show_streaming_window: false
+
+# Size of the rolling window in characters (not chunks)
+streaming_window_size: 250
+
+# --- LLM Parameters ---
+# The specific model to use for all API calls.
+# Example: 'gemini-2.5-pro', 'gpt-4o', etc.
+model_name: 'gemini-2.5-pro'
+
+# The temperature setting for the LLM. Lower is more deterministic.
+# The paper used 0.1.
+temperature: 0.1
+
+# The reasoning token budget. The paper used the max of 32768.
+# Set to 0 to disable and rely on proxy defaults.
+thinking_budget: 32000
+
+# Maximum number of retries for a failed API call.
+max_retries: 2500
+
+# Maximum number of retries when response is missing <end of output> marker.
+max_marker_retries: 2500
+
+# --- Pipeline Control ---
+# The problem identifier to solve. Corresponds to a file in the /problems directory.
+problem_id: 'problem18'
+
+# Continue from completed solutions (useful for further research)
+# When true, the pipeline will continue even from previously accepted solutions
+continue_from_completed: true
+
+# Maximum number of iterations for the main correction loop (Steps 3-4-5).
+# Prevents infinite loops on problems that the agent gets stuck on.
+max_correction_loops: 125
+
+# Number of times to run the final verification check for an accepted solution.
+# The paper used 5.
+final_verification_passes: 4
+
+# Maximum number of retries if final verification fails after Meta-Verifier approval.
+# This allows the system to attempt fixes for issues only caught by rigorous final checks.
+max_final_check_retries: 19
+
+# Number of initial solutions to generate in Step 1.
+initial_generation_samples: 8
+
+# --- Parallelization Settings ---
+# Enable parallel processing for initial generation and final verification
+# Set to false to use sequential processing (useful for debugging)
+enable_parallelization: true
+
+# Maximum number of parallel workers (threads)
+# Will be capped at min(this value, number of tasks)
+max_parallel_workers: 8
+
+# --- Parallel Trajectory Mode ---
+# When enabled, each initial sample runs through the entire pipeline independently
+# This explores multiple solution paths in parallel
+parallel_trajectory_mode: true
+
+# Maximum trajectories to run in parallel (only used if parallel_trajectory_mode is true)
+max_parallel_trajectories: 3
+
+# --- Directory Paths ---
+# Path to the directory where problem markdown files are stored.
+problems_dir: 'problems'
+
+# Path to the root directory for all generated outputs.
+# Outputs for each problem will be stored in a subdirectory here.
+outputs_dir: 'outputs'

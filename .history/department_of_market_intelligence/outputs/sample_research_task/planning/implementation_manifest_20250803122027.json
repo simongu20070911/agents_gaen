@@ -1,0 +1,216 @@
+[
+  {
+    "task_id": "simulation_run_1",
+    "description": "Executes the first of ten independent simulations. Generates N=1,000,000 samples for X1, X2, X3, calculates Y, and performs statistical tests against theoretical values.",
+    "dependencies": [],
+    "parallel_group": 1,
+    "estimated_runtime": "5 minutes",
+    "input_artifacts": [],
+    "output_artifacts": [
+      "/home/gaen/agents_gaen/department_of_market_intelligence/outputs/sample_research_task/results/run_1_results.json"
+    ],
+    "interface_contract": {
+      "schema": {
+        "run_id": "string",
+        "sample_size": "integer",
+        "theoretical_mean": "float",
+        "simulated_mean": "float",
+        "mean_z_test_p_value": "float",
+        "theoretical_variance": "float",
+        "simulated_variance": "float",
+        "variance_chi2_test_p_value": "float",
+        "correlation_matrix": "object"
+      }
+    },
+    "stitching_point": null,
+    "resource_requirements": { "cpu_cores": 1, "memory_gb": 2 },
+    "success_criteria": "p-values for mean and variance tests are > 0.05 and the output artifact is created successfully.",
+    "can_fail_independently": true
+  },
+  {
+    "task_id": "simulation_run_2",
+    "description": "Executes the second of ten independent simulations.",
+    "dependencies": [],
+    "parallel_group": 1,
+    "estimated_runtime": "5 minutes",
+    "input_artifacts": [],
+    "output_artifacts": [
+      "/home/gaen/agents_gaen/department_of_market_intelligence/outputs/sample_research_task/results/run_2_results.json"
+    ],
+    "interface_contract": { "$ref": "#/0/interface_contract" },
+    "stitching_point": null,
+    "resource_requirements": { "cpu_cores": 1, "memory_gb": 2 },
+    "success_criteria": "p-values for mean and variance tests are > 0.05 and the output artifact is created successfully.",
+    "can_fail_independently": true
+  },
+  {
+    "task_id": "simulation_run_3",
+    "description": "Executes the third of ten independent simulations.",
+    "dependencies": [],
+    "parallel_group": 1,
+    "estimated_runtime": "5 minutes",
+    "input_artifacts": [],
+    "output_artifacts": [
+      "/home/gaen/agents_gaen/department_of_market_intelligence/outputs/sample_research_task/results/run_3_results.json"
+    ],
+    "interface_contract": { "$ref": "#/0/interface_contract" },
+    "stitching_point": null,
+    "resource_requirements": { "cpu_cores": 1, "memory_gb": 2 },
+    "success_criteria": "p-values for mean and variance tests are > 0.05 and the output artifact is created successfully.",
+    "can_fail_independently": true
+  },
+  {
+    "task_id": "simulation_run_4",
+    "description": "Executes the fourth of ten independent simulations.",
+    "dependencies": [],
+    "parallel_group": 1,
+    "estimated_runtime": "5 minutes",
+    "input_artifacts": [],
+    "output_artifacts": [
+      "/home/gaen/agents_gaen/department_of_market_intelligence/outputs/sample_research_task/results/run_4_results.json"
+    ],
+    "interface_contract": { "$ref": "#/0/interface_contract" },
+    "stitching_point": null,
+    "resource_requirements": { "cpu_cores": 1, "memory_gb": 2 },
+    "success_criteria": "p-values for mean and variance tests are > 0.05 and the output artifact is created successfully.",
+    "can_fail_independently": true
+  },
+  {
+    "task_id": "simulation_run_5",
+    "description": "Executes the fifth of ten independent simulations.",
+    "dependencies": [],
+    "parallel_group": 1,
+    "estimated_runtime": "5 minutes",
+    "input_artifacts": [],
+    "output_artifacts": [
+      "/home/gaen/agents_gaen/department_of_market_intelligence/outputs/sample_research_task/results/run_5_results.json"
+    ],
+    "interface_contract": { "$ref": "#/0/interface_contract" },
+    "stitching_point": null,
+    "resource_requirements": { "cpu_cores": 1, "memory_gb": 2 },
+    "success_criteria": "p-values for mean and variance tests are > 0.05 and the output artifact is created successfully.",
+    "can_fail_independently": true
+  },
+  {
+    "task_id": "simulation_run_6",
+    "description": "Executes the sixth of ten independent simulations.",
+    "dependencies": [],
+    "parallel_group": 1,
+    "estimated_runtime": "5 minutes",
+    "input_artifacts": [],
+    "output_artifacts": [
+      "/home/gaen/agents_gaen/department_of_market_intelligence/outputs/sample_research_task/results/run_6_results.json"
+    ],
+    "interface_contract": { "$ref": "#/0/interface_contract" },
+    "stitching_point": null,
+    "resource_requirements": { "cpu_cores": 1, "memory_gb": 2 },
+    "success_criteria": "p-values for mean and variance tests are > 0.05 and the output artifact is created successfully.",
+    "can_fail_independently": true
+  },
+  {
+    "task_id": "simulation_run_7",
+    "description": "Executes the seventh of ten independent simulations.",
+    "dependencies": [],
+    "parallel_group": 1,
+    "estimated_runtime": "5 minutes",
+    "input_artifacts": [],
+    "output_artifacts": [
+      "/home/gaen/agents_gaen/department_of_market_intelligence/outputs/sample_research_task/results/run_7_results.json"
+    ],
+    "interface_contract": { "$ref": "#/0/interface_contract" },
+    "stitching_point": null,
+    "resource_requirements": { "cpu_cores": 1, "memory_gb": 2 },
+    "success_criteria": "p-values for mean and variance tests are > 0.05 and the output artifact is created successfully.",
+    "can_fail_independently": true
+  },
+  {
+    "task_id": "simulation_run_8",
+    "description": "Executes the eighth of ten independent simulations.",
+    "dependencies": [],
+    "parallel_group": 1,
+    "estimated_runtime": "5 minutes",
+    "input_artifacts": [],
+    "output_artifacts": [
+      "/home/gaen/agents_gaen/department_of_market_intelligence/outputs/sample_research_task/results/run_8_results.json"
+    ],
+    "interface_contract": { "$ref": "#/0/interface_contract" },
+    "stitching_point": null,
+    "resource_requirements": { "cpu_cores": 1, "memory_gb": 2 },
+    "success_criteria": "p-values for mean and variance tests are > 0.05 and the output artifact is created successfully.",
+    "can_fail_independently": true
+  },
+  {
+    "task_id": "simulation_run_9",
+    "description": "Executes the ninth of ten independent simulations.",
+    "dependencies": [],
+    "parallel_group": 1,
+    "estimated_runtime": "5 minutes",
+    "input_artifacts": [],
+    "output_artifacts": [
+      "/home/gaen/agents_gaen/department_of_market_intelligence/outputs/sample_research_task/results/run_9_results.json"
+    ],
+    "interface_contract": { "$ref": "#/0/interface_contract" },
+    "stitching_point": null,
+    "resource_requirements": { "cpu_cores": 1, "memory_gb": 2 },
+    "success_criteria": "p-values for mean and variance tests are > 0.05 and the output artifact is created successfully.",
+    "can_fail_independently": true
+  },
+  {
+    "task_id": "simulation_run_10",
+    "description": "Executes the tenth of ten independent simulations.",
+    "dependencies": [],
+    "parallel_group": 1,
+    "estimated_runtime": "5 minutes",
+    "input_artifacts": [],
+    "output_artifacts": [
+      "/home/gaen/agents_gaen/department_of_market_intelligence/outputs/sample_research_task/results/run_10_results.json"
+    ],
+    "interface_contract": { "$ref": "#/0/interface_contract" },
+    "stitching_point": null,
+    "resource_requirements": { "cpu_cores": 1, "memory_gb": 2 },
+    "success_criteria": "p-values for mean and variance tests are > 0.05 and the output artifact is created successfully.",
+    "can_fail_independently": true
+  },
+  {
+    "task_id": "aggregate_and_analyze_results",
+    "description": "Aggregates the results from all 10 simulation runs. It calculates the mean and variance of the simulated means and variances, and generates a final summary report.",
+    "dependencies": [
+      "simulation_run_1", "simulation_run_2", "simulation_run_3", "simulation_run_4", "simulation_run_5",
+      "simulation_run_6", "simulation_run_7", "simulation_run_8", "simulation_run_9", "simulation_run_10"
+    ],
+    "parallel_group": 2,
+    "estimated_runtime": "2 minutes",
+    "input_artifacts": [
+      "/home/gaen/agents_gaen/department_of_market_intelligence/outputs/sample_research_task/results/run_1_results.json",
+      "/home/gaen/agents_gaen/department_of_market_intelligence/outputs/sample_research_task/results/run_2_results.json",
+      "/home/gaen/agents_gaen/department_of_market_intelligence/outputs/sample_research_task/results/run_3_results.json",
+      "/home/gaen/agents_gaen/department_of_market_intelligence/outputs/sample_research_task/results/run_4_results.json",
+      "/home/gaen/agents_gaen/department_of_market_intelligence/outputs/sample_research_task/results/run_5_results.json",
+      "/home/gaen/agents_gaen/department_of_market_intelligence/outputs/sample_research_task/results/run_6_results.json",
+      "/home/gaen/agents_gaen/department_of_market_intelligence/outputs/sample_research_task/results/run_7_results.json",
+      "/home/gaen/agents_gaen/department_of_market_intelligence/outputs/sample_research_task/results/run_8_results.json",
+      "/home/gaen/agents_gaen/department_of_market_intelligence/outputs/sample_research_task/results/run_9_results.json",
+      "/home/gaen/agents_gaen/department_of_market_intelligence/outputs/sample_research_task/results/run_10_results.json"
+    ],
+    "output_artifacts": [
+      "/home/gaen/agents_gaen/department_of_market_intelligence/outputs/sample_research_task/results/deliverables/final_report.md",
+      "/home/gaen/agents_gaen/department_of_market_intelligence/outputs/sample_research_task/results/statistical_results.json"
+    ],
+    "interface_contract": {
+      "inputs": { "$ref": "#/0/interface_contract" },
+      "outputs": {
+        "final_report": "A markdown file summarizing the entire experiment.",
+        "statistical_summary": {
+          "mean_of_simulated_means": "float",
+          "variance_of_simulated_means": "float",
+          "mean_of_simulated_variances": "float",
+          "variance_of_simulated_variances": "float"
+        }
+      }
+    },
+    "stitching_point": "This task reads the 'simulated_mean' and 'simulated_variance' from each of the 10 input JSON files, calculates the statistics across these values, and formats them into the final report.",
+    "resource_requirements": { "cpu_cores": 1, "memory_gb": 1 },
+    "success_criteria": "Final report and statistical summary are generated and saved to the correct paths.",
+    "can_fail_independently": false
+  }
+]

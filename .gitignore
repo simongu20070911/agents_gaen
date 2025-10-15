@@ -1,0 +1,48 @@
+# Python caches and bytecode
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual environments & environment files
+.venv/
+venv/
+.env
+.env.*
+
+# Logs, checkpoints, and transient outputs
+logs/
+*.log
+*.tmp
+*.cache/
+*.sqlite
+*.db
+checkpoints/
+outputs/
+output/
+run_artifacts/
+
+# Data and scratch workspaces
+data/
+draft_folder/
+*.parquet
+*.csv
+*.jsonl
+*.ndjson
+*.feather
+
+# Notebook artefacts
+.ipynb_checkpoints/
+
+# Editor & tooling metadata
+.idea/
+.vscode/
+.history/
+
+# Embedded or vendor repos we don't sync
+nate-container/
+docker-users/
+simongu20070911.github.io/

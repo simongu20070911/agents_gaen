@@ -3,6 +3,8 @@ __pycache__/
 *.py[cod]
 *.pyo
 *.pyd
+
+# Tool caches & test runners
 .pytest_cache/
 .mypy_cache/
 .ruff_cache/
@@ -17,13 +19,17 @@ venv/
 logs/
 *.log
 *.tmp
+run_artifacts/
 *.cache/
 *.sqlite
 *.db
-checkpoints/
-outputs/
+
+# Generated artefacts
 output/
-run_artifacts/
+outputs/
+department_of_market_intelligence/outputs/
+solver/outputs/
+checkpoints/
 
 # Data and scratch workspaces
 data/
